@@ -64,6 +64,10 @@ body {
     }
 
     .title2 {
-        height: 95px;
+              height: 95px;
+          }
+
+    .bg {
+        margin-top: 15px;
     }
 }
