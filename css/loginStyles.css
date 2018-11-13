@@ -1,4 +1,4 @@
-.title {
+.title, .title2 {
     background-image: url("../images/pokebees.jpg");
     background-size: contain;
     margin: 0 auto;
@@ -7,6 +7,7 @@
 }
 
 .bg {
+    position: relative;
     background-image: url("../images/pokeball.png");
     background-size: cover;
     margin: 0 auto;
@@ -16,8 +17,27 @@
 
 .title2 {
     background-image: url("../images/pokedex.jpg");
-    background-size: contain;
-    margin: 0 auto;
-    width: 600px;
     height: 220px;
+}
+
+.login {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 150px;
+    height: 100px;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: center;
+    border: solid 2px #406bb7;
+    padding: 10px;
+    background-color: #f8ce46;
+}
+
+@media only screen and(max-width: 600px) {
+    .title, .title2 {
+        width: 200px;
+        height: 100px;
+    }
 }
