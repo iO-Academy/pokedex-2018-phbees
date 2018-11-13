@@ -42,3 +42,24 @@ function getPokeType (array $array) : array {
 }
 
 $allPokemon = getPokeType($pokemonArray);
+
+$db = new PDO('mysql:host=127.0.0.1;dbname=pokemon', 'root');
+
+/** This function adds pokemon to the database from the API array
+ * @param $allPokemon array - This is the array that is broken down in the getPokeType function
+ * @param $db - PDO you have
+ */
+function addPokemon (array $allPokemon, PDO $db) {
+    foreach ($allPokemon as $pokemon) {
+        $name = $pokemon[0];
+        $type1 = $pokemon[1];
+        $type2 = $pokemon[2];
+        $addPokemon = $db->prepare("INSERT INTO `pokemon` (`pokemon_Name`, `pokemon_type`, `pokemon_type2`) VALUES (:pokemon_Name, :pokemon_type, :pokemon_type2)");
+        $addPokemon->bindParam(':pokemon_Name', $name);
+        $addPokemon->bindParam(':pokemon_type', $type1);
+        $addPokemon->bindParam(':pokemon_type2', $type2);
+        $addPokemon->execute();
+    }
+}
+
+addPokemon($allPokemon, $db);
