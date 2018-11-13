@@ -17,10 +17,28 @@ function grabApi () {
         }
         $i ++;
         curl_setopt($curl, CURLOPT_URL, 'https://pokeapi.co/api/v2/pokemon/' . $i . '/');
-        $pokemon[] = curl_exec($curl);
+        $resp = curl_exec($curl);
+        $pokemon[] = json_decode($resp, TRUE);
     }
     curl_close($curl);
     return $pokemon;
 }
 
-grabApi();
+$pokemonArray = grabApi();
+
+/** Iterates over the array given to create smaller multidimensional functions of each pokemon
+ * @param array $array - This should be the array of pokemon retrieved from the API
+ * @return array - an array, each item containing 3 values of name, type 1 & type 2
+ */
+function getPokeType (array $array) : array {
+    $pokemon = [];
+    foreach ($array as $eachArray) {
+        $name = $eachArray['forms'][0]['name'];
+        $type1 = $eachArray['types'][0]['type']['name'];
+        $type2 = $eachArray['types'][1]['type']['name'];
+        $pokemon[] = [$name, $type1, $type2];
+    }
+    return $pokemon;
+}
+
+$allPokemon = getPokeType($pokemonArray);
