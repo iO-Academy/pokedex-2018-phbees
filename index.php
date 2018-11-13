@@ -56,6 +56,7 @@ function insertintodatabase($allPokemon) {
     return $finalValues;
 }
 
+
 /*
  * inserts our Pokemon data in the database
  * $finalValues - our concacinated arrays with an trim ob the final Pokemon to remove the final ','.
