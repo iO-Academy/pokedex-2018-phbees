@@ -1,23 +1,37 @@
-.title, .title2 {
-    background-image: url("../images/pokebees.jpg");
-    background-size: contain;
-    margin: 0 auto;
-    width: 600px;
-    height: 190px;
+body {
+    background-color: #406bb7;
 }
 
 .bg {
+    width: 95%;
+    background-color: #ffffff;
+    border: solid 5px #406bb7;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+.title, .title2 {
+    background-image: url("../images/pokebees.jpg");
+    background-size: cover;
+    margin: 0 auto;
+    width: 600px;
+    height: 180px;
+
+}
+
+.pokeball {
     position: relative;
     background-image: url("../images/pokeball.png");
     background-size: cover;
     margin: 0 auto;
     width: 400px;
     height: 400px;
+
 }
 
 .title2 {
     background-image: url("../images/pokedex.jpg");
-    height: 220px;
+    height: 210px;
 }
 
 .login {
@@ -33,15 +47,23 @@
     border: solid 2px #406bb7;
     padding: 10px;
     background-color: #f8ce46;
+    border-radius: 12px;
 }
 
-@media only screen and (max-width: 600px) {
+.email {
+    margin: 15px 0 15px 0;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 650px) {
     .title, .title2 {
         width: 265px;
         height: 80px;
+        margin-bottom: 30px;
+        margin-top: 30px;
     }
 
     .title2 {
-        height: 100px;
+        height: 95px;
     }
 }
