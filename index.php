@@ -1,6 +1,12 @@
 <?php
 
-
+/*
+ * This is an API call to the pokeAPI and pulls all of the data from 151 pokemon
+ *
+ * @param this is the number 0
+ *
+ * @result this is a json string of all of the information of all of the 151 pokemon called
+ */
 function grabApi ($number)
 {
     while ($number < 151) {
