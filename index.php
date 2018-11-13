@@ -2,10 +2,11 @@
 
 /*
  * This is an API call to the pokeAPI and pulls all of the data from 151 pokemon and puts them in an array. thew sleep stops the api call half way through for 60 seconds
+ *$Temp stores each Pokemon data for a limited time, allowing for the needed data to be removed and stored in pokemon before being discarded on the next loop.
  *
- *
- * @result this is an array with a json string in it containing of all of the information of all of the 151 pokemon called
+ * $pokemon - holds all of our pokemon, with the only data we need from each, name, type 1 and type 2.
  */
+
 function grabApi () {
     $pokemon = [];
     $curl = curl_init();
@@ -18,27 +19,64 @@ function grabApi () {
         $i ++;
         curl_setopt($curl, CURLOPT_URL, 'https://pokeapi.co/api/v2/pokemon/' . $i . '/');
         $resp = curl_exec($curl);
-        $pokemon[] = json_decode($resp, TRUE);
+        $temp = json_decode($resp, TRUE);
+        $name = $temp['forms'][0]['name'];
+        $type1 = $temp['types'][0]['type']['name'];
+        $type2 = $temp['types'][1]['type']['name'];
+        $pokemon[] = [$name, $type1, $type2];
     }
     curl_close($curl);
     return $pokemon;
 }
 
-$pokemonArray = grabApi();
-
-/** Iterates over the array given to create smaller multidimensional functions of each pokemon
- * @param array $array - This should be the array of pokemon retrieved from the API
- * @return array - an array, each item containing 3 values of name, type 1 & type 2
+/*
+ * Allows us to insert all of our data in our DB at once. By putting each into a () we can concatinate each and then insert into the db as one large value.
+ *
+ *$allPokemen - the array of all the pokemon (with the only data we needed).
+ *
+ * $values - stores the concacinated arrays.
+ * $finalValues - our concacinated arrays with an trim ob the final Pokemon to remove the final ','.
  */
-function getPokeType (array $array) : array {
-    $pokemon = [];
-    foreach ($array as $eachArray) {
-        $name = $eachArray['forms'][0]['name'];
-        $type1 = $eachArray['types'][0]['type']['name'];
-        $type2 = $eachArray['types'][1]['type']['name'];
-        $pokemon[] = [$name, $type1, $type2];
+
+function insertintodatabase($allPokemon) {
+    $values = '';
+
+    foreach ($allPokemon as $result){
+        $values .= '(\'' . $result[0] . '\',';
+        $values .= '\'' . $result[1] . '\',';
+       if (isset($result[2])) {
+           $values .= '\'' . $result[2] . '\'), ';
+       } else {
+           $values .= '\'' . 'NULL' . '\'), ';
+       }
     }
-    return $pokemon;
+
+
+    $finalValues = rtrim($values, ', ');
+    return $finalValues;
 }
 
-$allPokemon = getPokeType($pokemonArray);
+/*
+ * inserts our Pokemon data in the database
+ * $finalValues - our concacinated arrays with an trim ob the final Pokemon to remove the final ','.
+ * $db - PDO to our database;
+ */
+
+function database ($finalValues, $db){
+
+    $query = $db->prepare("INSERT INTO `pokemon` (`pokemon_Name`, `pokemon_type`, `pokemon_type2`) VALUES " . $finalValues .";");
+
+    return $query->execute();
+
+}
+
+$pokemonArray = grabApi();
+
+$db = new PDO('mysql:host=127.0.0.1; dbname=Pokedex', 'root');
+
+//$allPokemon = getPokeType($pokemonArray);
+
+$finalValues = insertintodatabase($pokemonArray);
+
+database($finalValues, $db);
+
