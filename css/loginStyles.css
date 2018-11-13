@@ -35,9 +35,13 @@
     background-color: #f8ce46;
 }
 
-@media only screen and(max-width: 600px) {
+@media only screen and (max-width: 600px) {
     .title, .title2 {
-        width: 200px;
+        width: 265px;
+        height: 80px;
+    }
+
+    .title2 {
         height: 100px;
     }
 }
