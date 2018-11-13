@@ -16,7 +16,7 @@ class EmailTest extends TestCase
         } else {
             $result = 'object instantiated';
         }
-        $this->assertEquals($email, 'object not instantiated');
+        $this->assertEquals($result, 'object not instantiated');
     }
     public function testTypeError_emailValidate () : void
     {
@@ -26,6 +26,6 @@ class EmailTest extends TestCase
         } else {
             $result = 'object instantiated';
         }
-        $this->assertEquals($email, 'object not instantiated');
+        $this->assertEquals($result, 'object not instantiated');
     }
 }
