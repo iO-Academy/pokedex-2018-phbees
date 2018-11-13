@@ -3,7 +3,7 @@
 class Email
 {
     private $email;
-
+    private $valid;
     /**
      * Email constructor. Requires input email parameter. checks is email is valid. If it is not construction is
      * forbidden and object instantiation is not ompleted (by returning false).
@@ -12,10 +12,11 @@ class Email
      */
     public function __construct($email)
     {
+        $this->email = $email;
         if ($this->emailValidate($email)) {
-            $this->email = $email;
+            $this->valid = 1;
         } else {
-            return false;
+            $this->valid = 0;
         }
     }
 
@@ -39,6 +40,12 @@ class Email
      */
     public function __toString() : string
     {
+        if ($this->valid) {
         return $this->email;
+        }
+        return 'Not a valid email';
     }
 }
+
+$email = new Email('<scirpt>,sfja@gmail.com');
+var_dump($email);
