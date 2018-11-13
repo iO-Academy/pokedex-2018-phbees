@@ -8,24 +8,16 @@ class EmailTest extends TestCase
         $email = new Email('bob@gmail.com');
         $this->assertEquals($email, 'bob@gmail.com');
     }
+
     public function testFail_emailValidate () : void
     {
-        $email = new Email('<script>bob@gmail.com');
-        if ($email!==null){
-            $result = 'object not instantiated';
-        } else {
-            $result = 'object instantiated';
-        }
-        $this->assertEquals($result, 'object not instantiated');
+        $email = new Email('<script>email@gmails.com');
+        $this->assertEquals($email, 'Not a valid email');
     }
-    public function testTypeError_emailValidate () : void
+
+    public function testTypeTest_emailValidate () : void
     {
-        $email = new Email(true);
-        if ($email!==null){
-            $result = 'object not instantiated';
-        } else {
-            $result = 'object instantiated';
-        }
-        $this->assertEquals($result, 'object not instantiated');
+        $email = new Email(2);
+        $this->assertEquals($email, 'Not a valid email');
     }
 }
