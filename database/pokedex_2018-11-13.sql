@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.41)
 # Database: pokedex
-# Generation Time: 2018-11-13 10:27:48 +0000
+# Generation Time: 2018-11-13 10:35:39 +0000
 # ************************************************************
 
 
@@ -20,16 +20,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table pokemon
+# Dump of table users
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `pokemon`;
+DROP TABLE IF EXISTS `users`;
 
-CREATE TABLE `pokemon` (
+CREATE TABLE `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `pokemon_name` varchar(250) NOT NULL DEFAULT '',
-  `pokemon_type` varchar(250) DEFAULT NULL,
-  `pokemon_type_2` varchar(250) DEFAULT NULL,
+  `email` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
