@@ -46,6 +46,3 @@ class Email
         return 'Not a valid email';
     }
 }
-
-$email = new Email('<scirpt>,sfja@gmail.com');
-var_dump($email);
