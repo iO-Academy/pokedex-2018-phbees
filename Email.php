@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: academy
- * Date: 13/11/2018
- * Time: 13:26
- */
 
 class Email
 {
@@ -12,7 +6,7 @@ class Email
 
     /**
      * Email constructor. Requires input email parameter. checks is email is valid. If it is not construction is
-     * forbidden and user is redirected back to the login with a get information containing the email.
+     * forbidden and object instantiation is not ompleted (by returning false).
      *
      * @param $email
      */
@@ -21,7 +15,7 @@ class Email
         if ($this->emailValidate($email)) {
             $this->email = $email;
         } else {
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '?invalid_email=' . $email);
+            return false;
         }
     }
 
