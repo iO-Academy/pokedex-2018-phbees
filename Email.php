@@ -4,11 +4,12 @@ class Email
 {
     private $email;
     private $valid;
+
     /**
      * Email constructor. Requires input email parameter. checks is email is valid. If it is not construction is
-     * forbidden and object instantiation is not ompleted (by returning false).
+     * forbidden and object instantiation is not completed (by returning false).
      *
-     * @param $email
+     * @param $email is the input email address to be validated.
      */
     public function __construct($email)
     {
@@ -20,10 +21,11 @@ class Email
         }
     }
 
-    /**Function emailValidate() validates emails based upon predefined PHP filter FILTER_VALIDATE_EMAIL
-     *
+    /**
+     * Function emailValidate() validates emails based upon predefined PHP filter FILTER_VALIDATE_EMAIL
      *
      * @param string $email input email address.
+     *
      * @return Boolean, true if email is valid and has not special characters and false if it is invalid.
      */
     private  function emailValidate (string $email) : bool {
