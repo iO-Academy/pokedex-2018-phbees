@@ -98,11 +98,4 @@
         </div>
     </div>
 
-<!--    --><?php
-//    foreach ($portfolioResults as $project) {
-//        echo '<img src="' . $project['image'] . '">';
-//    }
-//    ?>
-
-
 </body>
