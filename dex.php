@@ -4,7 +4,7 @@
 
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="public/css/style.css"/>
     <title>
         PokeBees- Pokedex
     </title>
@@ -71,7 +71,7 @@
                 <h3>Type: y</h3>
             </div>
         </div>
-        </div>
     </div>
 
 </body>
+</html>
