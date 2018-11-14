@@ -21,9 +21,14 @@ function grabApi () {
         $resp = curl_exec($curl);
         $temp = json_decode($resp, TRUE);
         $name = $temp['forms'][0]['name'];
-        $type1 = $temp['types'][0]['type']['name'];
-        $type2 = $temp['types'][1]['type']['name'];
-        $pokemon[] = [$name, $type1, $type2];
+        if (isset($temp['types'][1]['type']['name'])){
+            $type1 = $temp['types'][0]['type']['name'];
+            $type2 = $temp['types'][1]['type']['name'];
+            $pokemon[] = [$name, $type1, $type2];
+        } else {
+            $type1 = $temp['types'][0]['type']['name'];
+            $pokemon[] = [$name, $type1];
+        }
     }
     curl_close($curl);
     return $pokemon;
@@ -65,12 +70,12 @@ function insertintodatabase($allPokemon) {
 
 function database ($finalValues, $db){
 
-    $query = $db->prepare("INSERT INTO `pokemon` (`pokemon_Name`, `pokemon_type`, `pokemon_type2`) VALUES " . $finalValues .";");
+    $query = $db->prepare("INSERT INTO `pokemon` (`pokemon_name`, `pokemon_type`, `pokemon_type_2`) VALUES " . $finalValues .";");
 
     return $query->execute();
 
 }
-
+var_dump($pokemonArray);
 $pokemonArray = grabApi();
 
 $db = new PDO('mysql:host=127.0.0.1; dbname=Pokedex', 'root');
