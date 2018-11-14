@@ -49,7 +49,6 @@ function grabApi() : array {
  *
  * @return string $finalValues - our concatenated arrays with an trim ob the final Pokemon to remove the final ','.
  */
-
 function createSQLString(array $pokemonArray) : string {
     $values = '';
     foreach ($pokemonArray as $result) {
