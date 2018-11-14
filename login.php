@@ -8,5 +8,5 @@ $db = new PDO('mysql:host=127.0.0.1;dbname=users','root');
 
 $users = new \theNamespace\Users($db,$email);
 
-$users->grabIdFromDb();
+$d = $users->grabIdFromDb();
 $users->checkIfEnteredEmailExists();
