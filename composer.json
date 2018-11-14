@@ -1,5 +1,5 @@
 {
   "autoload": {
-    "psr-4": {"theNamespace\\": "src/Classes"}
+    "psr-4": {"theNamespace\\": "src\\Classes"}
   }
 }
