@@ -12,7 +12,7 @@ class Users
      * constructor that requires a db connection and an email and then puts them into variables
      *
      * @param $DbConnection is a db connection
-     * @param $email is the entered email
+     * @param string $email is the entered email
      */
     public function __construct($DbConnection, string $email)
     {
