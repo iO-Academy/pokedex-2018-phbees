@@ -1,6 +1,14 @@
 <?php
 
-require_once 'dbConn.php';
+/**
+ * Creates the connection from the database `pokedex`.
+ *
+ * @return PDO $db is the database.
+ */
+function dbConn() {
+    $db = new PDO('mysql:host=127.0.0.1; dbname=pokedex', 'root');
+    return $db;
+}
 
 /**
  * This is an API call to the pokeAPI and pulls all of the data from 151 pokemon and puts them in an array. The sleep stops the api call half way through for 60 seconds
