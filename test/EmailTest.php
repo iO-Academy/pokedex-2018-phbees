@@ -1,6 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 require_once "../Email.php";
+
 class EmailTest extends TestCase
 {
     public function testSuccess_emailValidate () : void
@@ -11,13 +12,13 @@ class EmailTest extends TestCase
 
     public function testFail_emailValidate () : void
     {
+        $this->expectException(UnexpectedValueException::class);
         $email = new Email('<script>email@gmails.com');
-        $this->assertEquals($email, 'Not a valid email');
     }
 
     public function testTypeTest_emailValidate () : void
     {
+        $this->expectException(UnexpectedValueException::class);
         $email = new Email(2);
-        $this->assertEquals($email, 'Not a valid email');
     }
 }

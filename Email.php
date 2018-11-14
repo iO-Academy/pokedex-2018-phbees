@@ -16,7 +16,7 @@ class Email
         if ($this->emailValidate($email)) {
             $this->email = $email;
         } else {
-            throw new Exception('Invalid email');
+            throw new UnexpectedValueException('Invalid email');
         }
     }
 
