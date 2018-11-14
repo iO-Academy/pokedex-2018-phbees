@@ -1,6 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
-require_once "../Email.php";
+require_once '../Classes/Email.php';
 
 class EmailTest extends TestCase
 {
