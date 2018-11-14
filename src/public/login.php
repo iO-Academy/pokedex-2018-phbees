@@ -9,5 +9,5 @@ try {
 $cleanEmail = '(string) $email';
 $db = new PDO('mysql:host=127.0.0.1;dbname=Pokedex','root');
 $users = new \theNamespace\Users($db,$email);
-$d = $users->grabIdFromDb();
+$users->grabIdFromDb();
 $users->checkIfEnteredEmailExists();
