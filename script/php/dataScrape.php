@@ -57,7 +57,7 @@ function createSQLString(array $pokemonArray) : string {
         if (isset($result[2])) {
             $values .= '\'' . $result[2] . '\'), ';
         } else {
-            $values .= '\'' . NULL . '\'), ';
+            $values .= ' NULL), ';
         }
     }
     return $finalValues = rtrim($values, ', ');
@@ -86,9 +86,12 @@ function insertIntoDatabase(string $finalValues, PDO $db) : bool {
     return $query->execute();
 }
 
+$db = dbConn();
+
+truncateTable($db);
+
 $pokemonArray = grabApi();
 
-$db = dbConn();
 
 $finalValues = createSQLString($pokemonArray);
 
