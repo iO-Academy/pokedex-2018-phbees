@@ -11,10 +11,10 @@ class Users
     /**
      * constructor that requires a db connection and an email and then puts them into variables
      *
-     * @param $DbConnection is a db connection
+     * @param \PDO $DbConnection is a db connection
      * @param string $email is the entered email
      */
-    public function __construct($DbConnection, string $email)
+    public function __construct(\PDO $DbConnection, string $email)
     {
         $this->DbConnection = $DbConnection;
         $this->email = $email;
@@ -24,7 +24,7 @@ class Users
      * this grabs the users ID from the db if it exists and sets the objects $userId with that value
      * If there is no id matching the email then then it does not set the objects id.
      */
-    public function grabIdFromDb()
+    public function grabIdFromDb() : void
     {
         $query=$this->DbConnection->prepare("SELECT `id` FROM `users` WHERE `email` = :email;");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
