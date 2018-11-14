@@ -6,8 +6,7 @@
  * @return PDO $db is the database.
  */
 function dbConn() {
-    $db = new PDO('mysql:host=127.0.0.1; dbname=pokedex', 'root');
-    return $db;
+    return new PDO('mysql:host=127.0.0.1; dbname=pokedex', 'root');
 }
 
 /**
@@ -63,6 +62,16 @@ function createSQLString(array $pokemonArray) : string {
         }
     }
     return $finalValues = rtrim($values, ', ');
+}
+
+/**
+ * Wipes data from the `pokemon` table of the db ready to be repopulated if updating.
+ *
+ * @param PDO $db is the database being looked into.
+ */
+function truncateTable(PDO $db) : void {
+    $truncateQuery = $db->prepare('TRUNCATE TABLE `pokemon`;');
+    $truncateQuery->execute();
 }
 
 /**
