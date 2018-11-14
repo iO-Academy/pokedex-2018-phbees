@@ -15,7 +15,7 @@ function dbConn() : PDO {
  *
  * @return array $pokemon - holds all of our pokemon, with the only data we need from each, name, type 1 and type 2.
  */
-function grabApi() : array {
+function grabPokemonFromApi() : array {
     $pokemon = [];
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -29,12 +29,11 @@ function grabApi() : array {
         $resp = curl_exec($curl);
         $temp = json_decode($resp, TRUE);
         $name = $temp['forms'][0]['name'];
+        $type1 = $temp['types'][0]['type']['name'];
         if (isset($temp['types'][1]['type']['name'])) {
-            $type1 = $temp['types'][0]['type']['name'];
             $type2 = $temp['types'][1]['type']['name'];
             $pokemon[] = [$name, $type1, $type2];
         } else {
-            $type1 = $temp['types'][0]['type']['name'];
             $pokemon[] = [$name, $type1];
         }
     }
@@ -86,10 +85,12 @@ function insertIntoDatabase(string $finalValues, PDO $db) : bool {
     return $query->execute();
 }
 
-$pokemonArray = grabApi();
+$pokemonArray = grabPokemonFromApi();
 
 $db = dbConn();
 
 $finalValues = createSQLString($pokemonArray);
+
+truncateTable($db);
 
 insertIntoDatabase($finalValues, $db);
