@@ -49,7 +49,7 @@ function insertintodatabase($allPokemon) {
     foreach ($allPokemon as $result){
         $values .= '(\'' . $result[0] . '\',';
         $values .= '\'' . $result[1] . '\',';
-       if (isset($result[2])) {
+        if (isset($result[2])) {
            $values .= '\'' . $result[2] . '\'), ';
        } else {
            $values .= '\'' . 'NULL' . '\'), ';
@@ -75,7 +75,6 @@ function database ($finalValues, $db){
     return $query->execute();
 
 }
-var_dump($pokemonArray);
 $pokemonArray = grabApi();
 
 $db = new PDO('mysql:host=127.0.0.1; dbname=Pokedex', 'root');
