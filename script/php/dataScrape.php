@@ -5,7 +5,7 @@
  *
  * @return PDO $db is the database.
  */
-function dbConn() {
+function dbConn() : PDO {
     return new PDO('mysql:host=127.0.0.1; dbname=pokedex', 'root');
 }
 
