@@ -20,7 +20,7 @@ body {
 .poke {
     width: 46%;
     background-color: red;
-    height: 35%;
+    height: 200%;
     float: left;
     margin: 2%;
     border-radius: 2%;
@@ -47,6 +47,5 @@ body {
 @media only screen and (max-width: 1600px) and (max-width: 600px) {
     .poke {
         width: 100%;
-        height: 33%;
     }
 }
