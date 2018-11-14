@@ -22,7 +22,7 @@ class EmailTest extends TestCase
         $email = new Email(2);
     }
 
-    public function testnull_emailValidate () : void
+    public function testNull_emailValidate () : void
     {
         $this->expectException(UnexpectedValueException::class);
         $email = new Email('');
