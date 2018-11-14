@@ -4,9 +4,9 @@ namespace theNamespace;
 
 class Users
 {
-    public $DbConnection;
-    public $userId;
-    public $email;
+    private $DbConnection;
+    private $userId;
+    private $email;
 
     /**
      * constructor that requires a db connection and an email and then puts them into variables
@@ -21,57 +21,48 @@ class Users
     }
 
     /**
-     * this grabs the users ID from the db and returns it into an array
-     *
-     *
-     *@return this sets the userId param to contain an array containing the users ID
+     * this grabs the users ID from the db if it exists and sets the objects $userId with that value
+     * If there is no id matching the email then then it does not set the objects id.
      */
     public function grabIdFromDb()
     {
-        $email = $this->email;
         $query=$this->DbConnection->prepare("SELECT `id` FROM `users` WHERE `email` = :email;");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
-        $query->bindParam(':email',$email);
+        $query->bindParam(':email',$this->email);
         $query->execute();
         $result = $query->fetch();
         $this->userId = $result['id'];
-        return $this->userId;
     }
 
     /**
-     * this inserts new emails into the db if they don't already exist in there
+     * this inserts new emails into the db if they don't already exist in there and returns the id of where it was
+     * inserted
      *
      * @param string, $newEmail, this is the new email that the user has entered
      *
-     * @return, this inserts the new email into the db
+     * @return int $newId this inserts the new email into the db
      */
-    public function insertEmailToDb(string $newEmail)
+    private function insertEmailToDb(string $newEmail) : int
     {
         $db = $this->DbConnection;
-        $query = $db->prepare("INSERT INTO `users` (`email`) VALUES (:email);");
+        $query = $db->prepare('INSERT INTO `users` (`email`) VALUES (:email);');
         $query->bindParam(':email',$newEmail);
         $query->execute();
-        $newId = $db->lastInsertId();
-        $this->userId = $newId;
-        return $newId;
+        return $this->userId = $db->lastInsertId();
     }
 
     /**
      * this checks if the userId param contains an ID, if it does then the session starts.
      * If it doesnt contain an ID then it means the email doesnt exist on the db
      * and runs the function to insert it into the db then starts a session.
-     *
-     * @return runs a function to put email into db if not already and starts a session and goes to pokedex
      */
     public function checkIfEnteredEmailExists() : void
     {
-        $email = $this->email;
-        $id = $this->userId;
         if (empty($this->userId)) {
-            $this->insertEmailToDb($email);
+            $this->insertEmailToDb($this->email);
         }
         $_SESSION['login'] = 1;
-        $_SESSION['id'] = $id;
+        $_SESSION['id'] = $this->userId;
         header('Location: dex.php');
     }
 }
