@@ -60,20 +60,15 @@ class Users
      *
      * @return runs a function to put email into db if not already and starts a session and goes to pokedex
      */
-    public function checkIfEnteredEmailExists()
+    public function checkIfEnteredEmailExists() : void
     {
         $email = $this->email;
         $id = $this->userId;
         if (empty($this->userId)) {
             $this->insertEmailToDb($email);
-            $_SESSION['login'] = 1;
-            $_SESSION['id'] = $id;
-            header('Location: dex.php');
         }
-        else {
-            $_SESSION['login'] = 1;
-            $_SESSION['id'] = $id;
-            header('Location: dex.php');
-        }
+        $_SESSION['login'] = 1;
+        $_SESSION['id'] = $id;
+        header('Location: dex.php');
     }
 }
