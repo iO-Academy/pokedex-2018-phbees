@@ -3,21 +3,20 @@
 class Email
 {
     private $email;
-    private $valid;
 
     /**
      * Email constructor. Requires input email parameter. checks is email is valid. If it is not construction is
-     * forbidden and object instantiation is not completed (by returning false).
+     * forbidden and object instantiation is not completed and throws an error.
      *
-     * @param $email is the input email address to be validated.
+     * @param string $email is the input email address to be validated.
+     * @throws Exception if the email is incorrect
      */
-    public function __construct($email)
+    public function __construct(string $email)
     {
-        $this->email = $email;
         if ($this->emailValidate($email)) {
-            $this->valid = 1;
+            $this->email = $email;
         } else {
-            $this->valid = 0;
+            throw new UnexpectedValueException('Invalid email');
         }
     }
 
@@ -42,9 +41,6 @@ class Email
      */
     public function __toString() : string
     {
-        if ($this->valid) {
         return $this->email;
-        }
-        return 'Not a valid email';
     }
 }
