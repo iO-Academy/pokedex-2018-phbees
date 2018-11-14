@@ -14,6 +14,7 @@
                 <label>TRAINER EMAIL:</label>
                 <input class="email" name="email" placeholder="i.e. gary@gym.po.ke" />
                 <input class="enter" type="submit" value="GO TO POKEDEX" />
+                <?php if (isset($_GET['invalid_email'])){echo '<span>Invalid Email</span>';} ?>
             </form>
         </div>
         <div class="title2"></div>
