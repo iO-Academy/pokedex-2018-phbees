@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #406BB7;
+
+}
+
+.container {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    overflow: hidden;
+    padding: 3%;
+    border-radius: 12px;
+}
+
+.poke {
+    width: 46%;
+    background-color: red;
+    height: 35%;
+    float: left;
+    margin: 2%;
+    border-radius: 2%;
+}
+
+.pokeImg {
+    height: 93%;
+    background-color: cornflowerblue;
+    margin: 10px;
+    border-radius: 2%;
+    padding: 5px;
+}
+
+.col_left {
+    width: 49.9%;
+    float: left;
+}
+
+.col_right {
+    width: 49.9%;
+    float: right;
+}
+
+@media only screen and (max-width: 1600px) and (max-width: 600px) {
+    .poke {
+        width: 100%;
+        height: 33%;
+    }
+}
