@@ -74,7 +74,7 @@ function createSQLString(array $pokemonArray) : string {
  * @return bool - true or false if the query was able to execute or not.
  */
 function insertIntoDatabase(string $finalValues, PDO $db) : bool {
-    $query = $db->prepare('INSERT INTO `pokemon` (`pokemon_name`, `pokemon_type`, `pokemon_type_2`) VALUES' . $finalValues .';');
+    $query = $db->prepare('INSERT INTO `pokemon` (`pokemon_name`, `pokemon_type`, `pokemon_type_2`) VALUES ' . $finalValues . ' ;');
     return $query->execute();
 }
 
