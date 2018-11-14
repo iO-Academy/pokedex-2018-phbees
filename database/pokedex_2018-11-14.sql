@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.41)
 # Database: pokedex
-# Generation Time: 2018-11-13 10:27:48 +0000
+# Generation Time: 2018-11-14 11:42:17 +0000
 # ************************************************************
 
 
@@ -27,9 +27,9 @@ DROP TABLE IF EXISTS `pokemon`;
 
 CREATE TABLE `pokemon` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `pokemon_name` varchar(250) NOT NULL DEFAULT '',
-  `pokemon_type` varchar(250) DEFAULT NULL,
-  `pokemon_type_2` varchar(250) DEFAULT NULL,
+  `pokemon_name` varchar(200) DEFAULT NULL,
+  `pokemon_type` varchar(200) DEFAULT NULL,
+  `pokemon_type_2` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
