@@ -3,7 +3,6 @@
 class Email
 {
     private $email;
-    private $valid;
 
     /**
      * Email constructor. Requires input email parameter. checks is email is valid. If it is not construction is
