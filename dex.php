@@ -14,7 +14,7 @@
     <div class="container">
         <div class="poke">
             <div class="col_left">
-                <div class="pokeimg">
+                <div class="pokeImg">
                     <div>ID: 151</div>
                 </div>
 
@@ -35,7 +35,7 @@
 
         <div class="poke">
             <div class="col_left">
-                <div class="pokeimg">
+                <div class="pokeImg">
                     <div>ID: 151</div>
                 </div>
 
@@ -56,7 +56,7 @@
 
         <div class="poke">
             <div class="col_left">
-                <div class="pokeimg">
+                <div class="pokeImg">
                     <div>ID: 151</div>
                 </div>
 
@@ -77,7 +77,7 @@
 
         <div class="poke">
             <div class="col_left">
-                <div class="pokeimg">
+                <div class="pokeImg">
                     <div>ID: 151</div>
                 </div>
 
