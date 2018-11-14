@@ -10,10 +10,9 @@ $Pokemon->fetchPokemonFromDatabase();
 $Pokemon->displayPokemon();
 
 ?>
-
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="public/css/style.css"/>
     <title>
         PokeBees- Pokedex
     </title>
@@ -26,61 +25,49 @@ $Pokemon->displayPokemon();
                 <div class="pokeImg">
                     <div>ID: 151</div>
                 </div>
-
             </div>
-
             <div class="col_right">
                 <h2>Name: x</h2>
                 <h3>Type: y</h3>
                 <h3>Type: y</h3>
             </div>
         </div>
-
         <div class="poke">
             <div class="col_left">
                 <div class="pokeImg">
                     <div>ID: 151</div>
                 </div>
-
             </div>
-
             <div class="col_right">
                 <h2>Name: x</h2>
                 <h3>Type: y</h3>
                 <h3>Type: y</h3>
             </div>
         </div>
-
         <div class="poke">
             <div class="col_left">
                 <div class="pokeImg">
                     <div>ID: 151</div>
                 </div>
-
             </div>
-
             <div class="col_right">
                 <h2>Name: x</h2>
                 <h3>Type: y</h3>
                 <h3>Type: y</h3>
             </div>
         </div>
-
         <div class="poke">
             <div class="col_left">
                 <div class="pokeImg">
                     <div>ID: 151</div>
                 </div>
-
             </div>
-
             <div class="col_right">
                 <h2>Name: x</h2>
                 <h3>Type: y</h3>
                 <h3>Type: y</h3>
             </div>
-        </div>
         </div>
     </div>
-
 </body>
+</html>
