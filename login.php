@@ -6,7 +6,7 @@ $email = $_POST['email'];
 
 $db = new PDO('mysql:host=127.0.0.1;dbname=users','root');
 
-$checkEmail = new \theNamespace\CheckEmail($db);
+$users = new \theNamespace\Users($db,$email);
 
-$checkEmail->grabEmailFromDb();
-$checkEmail->checkIfEnteredEmailExists($email);
+$users->grabIdFromDb();
+$users->checkIfEnteredEmailExists();
