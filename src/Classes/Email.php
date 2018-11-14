@@ -1,5 +1,7 @@
 <?php
 
+namespace theNamespace;
+
 class Email
 {
     private $email;
@@ -9,14 +11,14 @@ class Email
      * forbidden and object instantiation is not completed and throws an error.
      *
      * @param string $email is the input email address to be validated.
-     * @throws Exception if the email is incorrect
+     * @throws \Exception if the email is incorrect
      */
     public function __construct(string $email)
     {
         if ($this->emailValidate($email)) {
             $this->email = $email;
         } else {
-            throw new UnexpectedValueException('Invalid email');
+            throw new \UnexpectedValueException('Invalid email');
         }
     }
 
