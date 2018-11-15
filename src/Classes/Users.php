@@ -18,8 +18,8 @@ class Users
      */
     public function __construct(Db $DbConnection, Email $email)
     {
-        $this->DbConnection = $DbConnection;
-        $this->email = '(string) $email';
+        $this->DbConnection = $DbConnection->connect();
+        $this->email = "$email";
     }
 
     /**
@@ -28,8 +28,7 @@ class Users
      */
     public function grabIdFromDb() : void
     {
-        $db = $this->DbConnection->connect();
-        $query=$db->prepare("SELECT `id` FROM `users` WHERE `email` = :email;");
+        $query=$this->DbConnection->prepare("SELECT `id` FROM `users` WHERE `email` = :email;");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->bindParam(':email',$this->email);
         $query->execute();
@@ -47,11 +46,10 @@ class Users
      */
     private function insertEmailToDb(string $newEmail) : int
     {
-        $db = $this->DbConnection;
-        $query = $db->prepare('INSERT INTO `users` (`email`) VALUES (:email);');
+        $query = $this->DbConnection->prepare('INSERT INTO `users` (`email`) VALUES (:email);');
         $query->bindParam(':email',$newEmail);
         $query->execute();
-        return $this->userId = $db->lastInsertId();
+        return $this->userId = $this->DbConnection->lastInsertId();
     }
 
     /**
