@@ -4,6 +4,6 @@ Database Setup (From Within Vagrant Box)
 
 2) Create a database named 'pokedex' in a database manager. 
 
-3) Run 'sql/pokedex_2018-11-14.sql' in a database manager to create the Pokemon table.
+3) Run 'database/pokedex_2018-11-14.sql' in a database manager to create the Pokemon table.
 
 4) In the terminal, navigate to 'pokedex-2018-phbees' and run 'php script/dataScrape.php to populate the Pokemon table.
