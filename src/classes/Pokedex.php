@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: academy
- * Date: 15/11/2018
- * Time: 10:09
- */
 
 namespace theNamespace\classes;
-
 
 class Pokedex {
 
