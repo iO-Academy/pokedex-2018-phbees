@@ -1,6 +1,6 @@
 <?php
 
-namespace theNamespace;
+namespace phbees\pokedex;
 
 class Users
 {
