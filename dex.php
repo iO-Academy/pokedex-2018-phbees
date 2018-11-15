@@ -27,6 +27,8 @@ $pokedex = new \theNamespace\classes\Pokedex($db);
                 <h2>Name: x</h2>
                 <h3>Type: y</h3>
                 <h3>Type: y</h3>
+                <input type="checkbox" name="caught"> I have caught this Pokemon<br>
+                <input type="submit" value="submit">
             </div>
         </div>
         <div class="poke">
@@ -39,6 +41,8 @@ $pokedex = new \theNamespace\classes\Pokedex($db);
                 <h2>Name: x</h2>
                 <h3>Type: y</h3>
                 <h3>Type: y</h3>
+                <input type="checkbox" name="caught"> I have caught this Pokemon<br>
+                <input type="submit" value="submit">
             </div>
         </div>
         <div class="poke">
@@ -51,6 +55,8 @@ $pokedex = new \theNamespace\classes\Pokedex($db);
                 <h2>Name: x</h2>
                 <h3>Type: y</h3>
                 <h3>Type: y</h3>
+                <input type="checkbox" name="caught"> I have caught this Pokemon<br>
+                <input type="submit" value="submit">
             </div>
         </div>
         <div class="poke">
@@ -63,6 +69,8 @@ $pokedex = new \theNamespace\classes\Pokedex($db);
                 <h2>Name: x</h2>
                 <h3>Type: y</h3>
                 <h3>Type: y</h3>
+                <input type="checkbox" name="caught"> I have caught this Pokemon<br>
+                <input type="submit" value="submit">
             </div>
         </div>
     </div>
