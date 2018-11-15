@@ -49,4 +49,8 @@ body {
     .poke {
         width: 100%;
     }
+    .pokeImg {
+        width: 100px;
+        height: 100px;
+    }
 }

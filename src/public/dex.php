@@ -11,7 +11,7 @@ $pokedex = new \Pokedex\classes\Pokedex($db);
 ?>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="../../public/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <title>
         PokeBees- Pokedex
     </title>
