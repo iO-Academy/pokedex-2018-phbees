@@ -49,7 +49,11 @@ class Users
         $query = $this->DbConnection->prepare('INSERT INTO `users` (`email`) VALUES (:email);');
         $query->bindParam(':email',$newEmail);
         $query->execute();
-        return $this->userId = $this->DbConnection->lastInsertId();
+        $id = $this->DbConnection->lastInsertId();
+        $query2 =$this->DbConnection->prepare('INSERT INTO `link` (`user_id`, `pokemon_id`) SELECT (:id), `id` FROM `pokemon`');
+        $query2->bindParam(':id',$id);
+        $query2->execute();
+        return $this->userId = $id;
     }
 
     /**
