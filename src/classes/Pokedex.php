@@ -33,3 +33,4 @@ class Pokedex {
         return $result;
     }
 }
+
