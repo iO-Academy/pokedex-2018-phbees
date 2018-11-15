@@ -4,7 +4,7 @@ require_once '../../vendor/autoload.php';
 
 $db = new PDO('mysql:host=127.0.0.1; dbname=pokedex', 'root');
 
-$pokedex = new \theNamespace\classes\Pokedex($db);
+$pokedex = new \Pokedex\classes\Pokedex($db);
 
 
 
