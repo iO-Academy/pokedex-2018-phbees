@@ -22,6 +22,5 @@ $pokedex = new \theNamespace\classes\Pokedex($db);
         <?php echo $pokedex->displayPokemon() ?>
 
     </div>
-    </div>
 </body>
 </html>
