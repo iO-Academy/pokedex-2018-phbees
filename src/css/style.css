@@ -26,7 +26,8 @@ body {
 }
 
 .pokeImg {
-    height: 93%;
+    height: 200px;
+    width: 200px;
     background-color: #6495ED;
     margin: 10px;
     border-radius: 2%;
