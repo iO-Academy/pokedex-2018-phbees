@@ -62,6 +62,7 @@ class Users
         if (empty($this->userId)) {
             $this->insertEmailToDb($this->email);
         }
+        session_start();
         $_SESSION['login'] = 1;
         $_SESSION['id'] = $this->userId;
         header('Location: dex.php');

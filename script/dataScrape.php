@@ -1,8 +1,20 @@
 <?php
 
 /**
- * This is an API call to the pokeAPI and pulls all of the data from 151 pokemon and puts them in an array. The sleep stops the api call half way through for 60 seconds
- * $temp stores each Pokemon data for a limited time, allowing for the needed data to be removed and stored in pokemon before being discarded on the next loop.
+ * Creates a db connection.
+ *
+ * @return PDO $db is the database connection.
+ */
+function dbConn() : PDO {
+    $db = new PDO('mysql:host=127.0.0.1;dbname=pokedex', 'root');
+    return $db;
+}
+
+/**
+ * This is an API call to the pokeAPI and pulls all of the data from 151 pokemon and puts them in an array.
+ * The sleep stops the api call half way through for 60 seconds.
+ * $temp stores each Pokemon data for a limited time, allowing for the needed data to be removed and stored in pokemon
+ * before being discarded on the next loop.
  *
  * @return array $pokemon - holds all of our pokemon, with the only data we need from each, name, type 1 and type 2.
  */
@@ -33,7 +45,8 @@ function grabPokemonFromApi() : array {
 }
 
 /**
- * Allows us to insert all of our data in our DB at once. By putting each into a () we can concatenate each and then insert into the db as one large value.
+ * Allows us to insert all of our data in our DB at once. By putting each into a () we can concatenate each and then
+ * insert into the db as one large value.
  *
  * @param array $pokemonArray - the array of all the pokemon (with the only data we needed).
  *
@@ -76,8 +89,7 @@ function insertIntoDatabase(string $finalValues, PDO $db) : bool {
     return $query->execute();
 }
 
-$dbConn = new \Pokedex\Classes\MySqlConnection();
-$db = $dbConn->connect();
+$db = dbConn();
 
 truncateTable($db);
 
