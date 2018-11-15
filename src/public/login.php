@@ -5,10 +5,10 @@ try {
     if(isset($_POST['email'])){
     $email = new Pokedex\Classes\Email($_POST['email']);
     } else {
-        header('Location:loginPage.php?invalid_email=1');
+        header('Location:../../index.php?invalid_email=1');
     }
 } catch (UnexpectedValueException $e){
-    header('Location:loginPage.php?invalid_email=1');
+    header('Location:../../index.php?invalid_email=1');
 }
 
 $db = new Pokedex\Classes\MySqlConnection();
