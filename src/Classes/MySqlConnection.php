@@ -1,6 +1,6 @@
 <?php
 
-namespace Pokedex\Classes;
+namespace Pokedex\classes;
 
 use Pokedex\Interfaces as Interfaces;
 
