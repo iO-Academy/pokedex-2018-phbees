@@ -5,9 +5,10 @@ require_once __DIR__ . '/vendor/autoload.php';
 $db = new PDO('mysql:host=127.0.0.1; dbname=pokedex', 'root');
 
 
-$Pokemon = new \theNamespace\classes\Pokemon($db);
-$Pokemon->fetchPokemonFromDatabase();
-$Pokemon->displayPokemon();
+$pokedex = new \theNamespace\classes\Pokedex($db);
+
+var_dump($pokedex->allPokemon);
+
 
 ?>
 <html lang="en">
