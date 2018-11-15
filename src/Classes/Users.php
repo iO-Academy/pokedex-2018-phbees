@@ -12,12 +12,12 @@ class Users
      * constructor that requires a db connection and an email and then puts them into variables
      *
      * @param \PDO $DbConnection is a db connection
-     * @param string $email is the entered email
+     * @param Email $email is the entered email
      */
-    public function __construct(\PDO $DbConnection, string $email)
+    public function __construct(\PDO $DbConnection, Email $email)
     {
         $this->DbConnection = $DbConnection;
-        $this->email = $email;
+        $this->email = '(string) $email';
     }
 
     /**
