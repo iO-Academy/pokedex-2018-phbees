@@ -1,6 +1,6 @@
 <?php
 
-namespace theNamespace\classes;
+namespace Pokedex\Classes;
 
 class Pokemon
 {
