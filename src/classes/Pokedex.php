@@ -33,6 +33,12 @@ class Pokedex {
         return $result;
     }
 
+    /**
+     * Function displayPokemon() takes the pokemon information and dynamically creates a string of HTML to
+     * load onto the front end by concatenating it into $result
+     *
+     * @return string containing the HTML to be echoed onto the front end.
+     */
     public function displayPokemon() : string
     {
         $result = '';
@@ -43,7 +49,6 @@ class Pokedex {
                 array_key_exists('pokemon_type', $pokemon)
             ) {
                 $imageUrl = $this->pokemonImage . $pokemon['id'] . '.png';
-                echo $imageUrl;
                     $result.= "<div class='poke'><div class='col_left'>";
                 $result.= "<div class='pokeImg' style='background-image: url(\"" . $imageUrl  . "\");'>";
                 $result.= '<div>' . $pokemon['id'];
