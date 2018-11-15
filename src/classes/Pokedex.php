@@ -56,7 +56,7 @@ class Pokedex {
                 $result.= "<div class='col_right'>";
                 $result.= '<h2>Name: ' . $pokemon['pokemon_name'] . '</h2>';
                 $result.= '<h3>Type: ' . $pokemon['pokemon_type'] . '</h3>';
-                if (array_key_exists('pokemon_type_2', $pokemon)) {
+                if (isset($pokemon['pokemon_type_2'])) {
                     $result .= '<h3>Type: ' . $pokemon['pokemon_type_2'] . '</h3>';
                 }
                 $result .='</div></div>';
