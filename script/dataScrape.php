@@ -1,12 +1,13 @@
 <?php
 
 /**
- * Creates the connection from the database `pokedex`.
+ * Creates a db connection.
  *
- * @return PDO $db is the database.
+ * @return PDO $db is the database connection.
  */
 function dbConn() : PDO {
-    return new PDO('mysql:host=127.0.0.1; dbname=pokedex', 'root');
+    $db = new PDO('mysql:host=127.0.0.1;dbname=pokedex', 'root');
+    return $db;
 }
 
 /**
