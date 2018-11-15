@@ -6,8 +6,6 @@ $db = new PDO('mysql:host=127.0.0.1; dbname=pokedex', 'root');
 
 $pokedex = new \Pokedex\classes\Pokedex($db);
 
-
-
 ?>
 <html lang="en">
 <head>
@@ -20,8 +18,6 @@ $pokedex = new \Pokedex\classes\Pokedex($db);
 <h2>PokeBees Pokedex</h2>
     <div class="container">
         <?php echo $pokedex->displayPokemon() ?>
-
-    </div>
     </div>
 </body>
 </html>
