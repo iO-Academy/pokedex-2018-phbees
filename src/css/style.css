@@ -49,6 +49,8 @@ body {
     .poke {
         width: 100%;
     }
+}
+@media only screen and (max-width: 600px) {
     .pokeImg {
         width: 100px;
         height: 100px;
