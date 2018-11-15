@@ -1,6 +1,8 @@
 <?php
 
-namespace phbees\pokedex;
+namespace Pokedex\Classes;
+
+use Pokedex\Interfaces\Db;
 
 class Users
 {
@@ -11,10 +13,10 @@ class Users
     /**
      * constructor that requires a db connection and an email and then puts them into variables
      *
-     * @param \PDO $DbConnection is a db connection
+     * @param Db $DbConnection is a db connection
      * @param Email $email is the entered email
      */
-    public function __construct(\PDO $DbConnection, Email $email)
+    public function __construct(Db $DbConnection, Email $email)
     {
         $this->DbConnection = $DbConnection;
         $this->email = '(string) $email';
@@ -26,7 +28,8 @@ class Users
      */
     public function grabIdFromDb() : void
     {
-        $query=$this->DbConnection->prepare("SELECT `id` FROM `users` WHERE `email` = :email;");
+        $db = $this->DbConnection->connect();
+        $query=$db->prepare("SELECT `id` FROM `users` WHERE `email` = :email;");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->bindParam(':email',$this->email);
         $query->execute();

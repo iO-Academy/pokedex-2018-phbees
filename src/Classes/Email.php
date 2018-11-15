@@ -1,6 +1,6 @@
 <?php
 
-namespace phbees\pokedex;
+namespace Pokedex\Classes;
 
 class Email
 {
