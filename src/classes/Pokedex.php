@@ -20,7 +20,7 @@ class Pokedex {
      * @return array of results from the query, the query generates an array of Assoc and indexed array of the the properties. name,id,type,type2
      */
 
-    private function fetchPokemonFromDatabase()
+    private function fetchPokemonFromDatabase() : array
     {
         $db = $this->dbConnection;
         $query = $db->prepare("SELECT `id`, `pokemon_name`, `pokemon_type`, `pokemon_type_2` FROM `pokemon`;");
@@ -33,7 +33,7 @@ class Pokedex {
         return $result;
     }
 
-    public function displayPokemon()
+    public function displayPokemon() : string
     {
         $result = '';
         foreach ($this->allPokemon as $pokemon) {
