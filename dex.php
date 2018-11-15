@@ -7,8 +7,6 @@ $db = new PDO('mysql:host=127.0.0.1; dbname=pokedex', 'root');
 
 $pokedex = new \theNamespace\classes\Pokedex($db);
 
-var_dump($pokedex->allPokemon);
-
 
 ?>
 <html lang="en">
