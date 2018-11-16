@@ -1,5 +1,9 @@
 <?php
 
+if($_SESSION['login'] !== 1){
+    header('Location: ../../index.php');
+}
+
 require_once '../../vendor/autoload.php';
 
 $db = new PDO('mysql:host=127.0.0.1; dbname=pokedex', 'root');
